@@ -1,0 +1,21 @@
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    line-height: 1.28571;
+    color: #888;
+    background-color: #141414;
+}
+
+.page {
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .page {
+        padding-top: 0;
+    }
+}
