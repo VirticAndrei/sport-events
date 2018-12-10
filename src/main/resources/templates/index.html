@@ -1,65 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/header.css">
-    <link rel="stylesheet" href="../static/main_content.css">
+    <!--<link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/static/header.css}">
+    <link rel="stylesheet" th:href="@{/static/main_content.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/static/css/OptionsButton.css}">
-    <script type="text/javascript" th:src="@{../static/OptionsButton.js"}></script>
+    <script type="text/javascript" th:src="@{/static/OptionsButton.js"}></script>-->
+
+    
+    <link rel="stylesheet" type="text/css" th:href="@{/css/OptionsButton.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/OrganizeEventButton.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/ParticipateEventButon.css}">
+    <script type="text/javascript" th:src="@{/OptionsButton.js}"></script>
+    <script type="text/javascript" th:src="@{/OrganizeEventButton.js}"></script>
+    <script type="text/javascript" th:src="@{/ParticipateEventButton.js}"></script>
+    <!--<link rel="stylesheet" type="text/css" href="../static/css/OptionsButton.css">
+    <script type="text/javascript" src="../static/OptionsButton.js"></script>-->
 
     <title>Sportbook</title>
 </head>
 <body>
 <div class="page">
-    <!-- Page Header-->
-    <header class="page-head undefined">
-        <!-- RD Navbar-->
-        <div class="rd-navbar-wrap header-default" style="height: 217px;">
-            <nav class="rd-navbar rd-navbar-original rd-navbar-fullwidth" data-stick-up-offset="245px" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fullwidth" data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fullwidth" data-lg-device-layout="rd-navbar-static" data-lg-layout="rd-navbar-static" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
-                <div class="rd-navbar-top-panel">
-                    <div class="rd-navbar-top-panel-wrap">
-                        <button data-rd-navbar-toggle=".list-inline" type="submit" class="rd-navbar-collapse-toggle toggle-original"><span></span></button>
-                        <p>welcome to<span> Our Sports News Center!</span></p>
-                        <div class="block-right">
-                            <ul class="list-inline toggle-original-elements">
-                                <li class="activePage"><a href="index.html">home</a></li>
-                                <li><a href="about.html">about</a></li>
-                                <li><a href="contact.html">contacts</a></li>
-                                <!-- RD Navbar Search-->
-                            </ul>
-                            <div class="rd-navbar-search toggle-original-elements">
-                                <form action="search.php" method="GET" class="rd-navbar-search-form">
-                                    <label class="rd-navbar-search-form-input">
-                                        <input type="text" name="s" placeholder="Search.." autocomplete="off">
-                                    </label>
-                                    <button type="submit" class="rd-navbar-search-form-submit"></button>
-                                </form>
-                                <!--span.rd-navbar-live-search-results-->
-                                <button data-rd-navbar-toggle=".rd-navbar-search, .rd-navbar-live-search-results" type="submit" class="rd-navbar-search-toggle toggle-original"></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="rd-navbar-inner">
-                    <!-- RD Navbar Panel-->
-                    <div class="rd-navbar-panel">
-                        <!-- RD Navbar Toggle-->
-                        <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle toggle-original"><span></span></button>
-                        <!-- RD Navbar Brand-->
-                        <div class="rd-navbar-brand"><a href="index.html" class="brand-name"><span class="text-bold">‘daily</span><span>sports</span><span class="brand-slogan">The latest sports news</span></a></div>
-                        <!--<div class="block-banner"><a href="#"><span>Banner space 728X90</span><img src="images/index-1.jpg" alt="" width="728" height="90"></a></div>-->
-                        <!--<ul class="list-inline-variant-1">
-                            <li><a href="#" class="fa-facebook"></a></li>
-                            <li><a href="#" class="fa-twitter"></a></li>
-                            <li><a href="#" class="fa-google-plus"></a></li>
-                            <li><a href="#" class="fa-youtube"></a></li>
-                        </ul>-->
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+    
     <!-- Page Content-->
     <main class="page-content">
 
@@ -67,12 +30,87 @@
             <button onclick="dropDownOptionsMenu()"
                     class="optionsButton">Optiuni</button>
             <div id="optionsDropDownList" class="dropdown-content">
-                <a href="#">Organizeaza un eveniment</a>
-                <a href="#">Participa la un eveniment oficial</a>
-                <a href="#"></a>
-                <a href="#"></a>
+                <p><button onclick="showEventOrganizeForm()"
+                        class="eventOrganize">Organizeaza un eveniment</button></p>
+                <p><button onclick="showEventParticipateForm()"
+						class="eventOrganize">Participa la un eveniment</button></p>
+              
             </div>
         </div>
+		
+		<div id="responsePannel" class="responsePannel">
+			<p id="responseText"></p>
+			<button onclick="hideResponsePannel()">Close</button>
+		</div>
+		
+		<div id="searchEventPannel" class="searchEventPannel">
+			<table class="eventsTable">
+			<thead>
+			<tr>
+				<th>Denumire</th>
+				<th>Data</th>
+				<th>Pret</th>
+				</tr>
+			</thead>
+			</table>
+			<button onclick="hideSearchEventPannel()">Close</button>
+		</div>
+
+        <div class="eventOrganizeForm" id="eventOrganizeDiv">
+
+            <form method="post">
+                <p><label>Titlu<input type="text"/></label></p>
+                <p><label>Descriere<input type="text"/></label></p>
+				<p><label>Data si ora<input type="datetime-local"/></label></p>
+				
+                <p><label id="activityLabel">Activitate</label><input type="button" onclick="toggleAtivitiesList()" class="activitiesListButton"/></p>
+				<div id="activitiesListDiv" class="activitiesListClass">
+					<ul>
+					<li class="activityItem" id="fotbal" onclick="selectActivity(event)">Fotbal</li>
+					<li class="activityItem" id="tenisCamp" onclick="selectActivity(event)">Tenis de camp</li>
+					<li class="activityItem" id="tenisMasa" onclick="selectActivity(event)">Tenis de masa</li>
+					<li class="activityItem" id="handball" onclick="selectActivity(event)">Handbal</li>
+					<li class="activityItem" id="basketbal" onclick="selectActivity(event)">Basketbal</li>
+					<li class="activityItem" id="hiking" onclick="selectActivity(event)">Hiking</li>
+					</ul>
+				</div>
+                <p><label id="addressOption" class="addressField">Adresa<input type="text"/></label></p>
+				<p><label id="rentOption" class="rentField">Inchiriaza teren<input type="button"/></label></p>	
+				
+                <p><input type="button" value="Organizeaza" onclick="showResponsePannel()"/>
+                <button onclick="closeEventOrganizeForm()">Close</button>
+                <button>Invita prieteni</button></p>
+            </form>
+        </div>
+		
+		<div class="eventOrganizeForm" id="eventParticipateDiv">
+		
+			<form method="post">
+				<p><label>Perioada<input type="date"/><input type="date"/></label></p>
+				<p><label id="activityLabelOrg">Activitate</label><input type="button" onclick="toggleAtivitiesList()" class="activitiesListButton"/></p>
+				<div id="activitiesListDiv2" class="activitiesListClass">
+					<ul>
+					<li class="activityItem" id="fotbalOrg" onclick="selectActivityOrg(event)">Fotbal</li>
+					<li class="activityItem" id="tenisCampOrg" onclick="selectActivityOrg(event)">Tenis de camp</li>
+					<li class="activityItem" id="tenisMasaOrg" onclick="selectActivityOrg(event)">Tenis de masa</li>
+					<li class="activityItem" id="handballOrg" onclick="selectActivityOrg(event)">Handbal</li>
+					<li class="activityItem" id="basketbalOrg" onclick="selectActivityOrg(event)">Basketbal</li>
+					<li class="activityItem" id="hikingOrg" onclick="selectActivityOrg(event)">Hiking</li>
+					</ul>
+				</div>
+				
+				<p><label id="categoryLabel">Categorie</label><input type="button" onclick="toggleCategoryList()" class="categoryListButton"/></p>
+				<div id="categoriesListDiv" class="categoriesList">
+					<ul>
+						<li class="categoryItem" id="avansati" onclick="selectCategory(event)">Avansati</li>
+						<li class="categoryItem" id="incepatori" onclick="selectCategory(event)">Incepatori</li>
+					</ul>
+				</div>
+				<p><input type="button" value="Participa" onclick="showSearchEventPannel()"/>
+                <button onclick="closeParticipateForm()">Close</button>
+				<!-- get the list of all events and populate this table-->
+			</form>
+		</div>
     </main>
 </div>
 </body>

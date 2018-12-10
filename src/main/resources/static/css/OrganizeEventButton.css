@@ -1,0 +1,54 @@
+.eventOrganize {
+	background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: 2px;
+    cursor: pointer;
+	width: 100%;
+}
+.eventOrganize:hover, .eventOrganize:focus {
+    background-color: #2980B9;
+}
+
+.eventOrganizeForm {
+    display: none;
+    margin-left: 250px;
+    color: white;
+    background-color: #3498DB;
+    min-height: 150px;
+	width: 250px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.responsePannel {
+	display: none;
+    margin-left: 250px;
+    color: white;
+    background-color: #3498DB;
+	width: 250px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.activityItem {
+	cursor: pointer;
+}
+.activityItem:hover {
+	color: black;
+}
+.activitiesListClass {
+	display:none;
+	position: relative;
+}
+
+.addressField {
+	display:none;
+	position:relative;
+}
+.rentField {
+	display:none;
+	position:relative;
+}
+.showOptions {
+	display: block;
+}

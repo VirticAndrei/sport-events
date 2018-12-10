@@ -4,8 +4,6 @@ function dropDownOptionsMenu() {
     document.getElementById("optionsDropDownList").classList.toggle("showOptions");
 }
 
-// Close the dropdown menu if the user clicks outside of it
-
 window.onclick = function (event) {
     if(!event.target.matches('.optionsButton')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
