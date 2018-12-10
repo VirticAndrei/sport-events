@@ -1,10 +1,7 @@
 package com.social.sport.events.controller;
 
-import com.social.sport.events.entities.Event;
 import com.social.sport.events.servicies.api.EventsService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,9 +16,23 @@ public class HomePageController {
     }
 
     @GetMapping("/index")
-    public String home(HttpServletRequest request) {
+    public String index(HttpServletRequest request) {
 
         return "index";
+
+    }
+
+    @PostMapping("/login")
+    public String login(HttpServletRequest request) {
+
+        return "index";
+
+    }
+
+    @GetMapping("/home")
+    public String home(HttpServletRequest request) {
+
+        return "home";
 
     }
 

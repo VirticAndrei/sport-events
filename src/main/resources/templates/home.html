@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" th:href="@{/css/MainContent.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/OptionsButton.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/OrganizeEventButton.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/ParticipateEventButon.css}">
+    <script type="text/javascript" th:src="@{/OptionsButton.js}"></script>
+    <script type="text/javascript" th:src="@{/OrganizeEventButton.js}"></script>
+    <script type="text/javascript" th:src="@{/ParticipateEventButton.js}"></script>
+    <!--<link rel="stylesheet" type="text/css" href="../static/css/OptionsButton.css">
+    <script type="text/javascript" src="../static/OptionsButton.js"></script>-->
+
+    <title>Sportbook</title>
+</head>
+<body>
+<div class="page">
+	<!-- Page Header-->
+	<header>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Sports Events</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="/home">Home</a></li>
+					<li><a href="#">Account</a></li>
+					<li><a href="#">Logout</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+    <!-- Page Content-->
+    <main class="page-content">
+        <div class="optionsMenu">
+            <button onclick="dropDownOptionsMenu()"
+					class="btn btn-primary optionsButton" type="button">Optiuni</button>
+            <div id="optionsDropDownList" class="dropdown-content">
+                <p><button onclick="showEventOrganizeForm()"
+                        class="btn btn-primary eventOrganize">Organizeaza un eveniment</button></p>
+                <p><button onclick="showEventParticipateForm()"
+						class="btn btn-primary eventOrganize">Participa la un eveniment</button></p>
+
+            </div>
+        </div>
+		
+		<div id="responsePannel" class="responsePannel">
+			<p id="responseText"></p>
+			<button onclick="hideResponsePannel()">Close</button>
+		</div>
+
+		<div id="searchEventPannel" class="searchEventPannel">
+			<table class="eventsTable">
+			<thead>
+			<tr>
+				<th>Denumire</th>
+				<th>Data</th>
+				<th>Pret</th>
+				</tr>
+			</thead>
+			</table>
+			<button onclick="hideSearchEventPannel()">Close</button>
+		</div>
+
+        <div class="eventOrganizeForm" id="eventOrganizeDiv">
+
+            <form method="post">
+                <p><label>Titlu<input type="text"/></label></p>
+                <p><label>Descriere<input type="text"/></label></p>
+				<p><label>Data si ora<input type="datetime-local"/></label></p>
+
+                <p><label id="activityLabel">Activitate</label><input type="button" onclick="toggleAtivitiesList()" class="activitiesListButton"/></p>
+				<div id="activitiesListDiv" class="activitiesListClass">
+					<ul>
+					<li class="activityItem" id="fotbal" onclick="selectActivity(event)">Fotbal</li>
+					<li class="activityItem" id="tenisCamp" onclick="selectActivity(event)">Tenis de camp</li>
+					<li class="activityItem" id="tenisMasa" onclick="selectActivity(event)">Tenis de masa</li>
+					<li class="activityItem" id="handball" onclick="selectActivity(event)">Handbal</li>
+					<li class="activityItem" id="basketbal" onclick="selectActivity(event)">Basketbal</li>
+					<li class="activityItem" id="hiking" onclick="selectActivity(event)">Hiking</li>
+					</ul>
+				</div>
+                <p><label id="addressOption" class="addressField">Adresa<input type="text"/></label></p>
+				<p><label id="rentOption" class="rentField">Inchiriaza teren<input type="button"/></label></p>
+
+                <p><input type="button" value="Organizeaza" onclick="showResponsePannel()"/>
+                <button onclick="closeEventOrganizeForm()">Close</button>
+                <button>Invita prieteni</button></p>
+            </form>
+        </div>
+
+		<div class="eventOrganizeForm" id="eventParticipateDiv">
+
+			<form method="post">
+				<p><label>Perioada<input type="date"/><input type="date"/></label></p>
+				<p><label id="activityLabelOrg">Activitate</label><input type="button" onclick="toggleAtivitiesList()" class="activitiesListButton"/></p>
+				<div id="activitiesListDiv2" class="activitiesListClass">
+					<ul>
+					<li class="activityItem" id="fotbalOrg" onclick="selectActivityOrg(event)">Fotbal</li>
+					<li class="activityItem" id="tenisCampOrg" onclick="selectActivityOrg(event)">Tenis de camp</li>
+					<li class="activityItem" id="tenisMasaOrg" onclick="selectActivityOrg(event)">Tenis de masa</li>
+					<li class="activityItem" id="handballOrg" onclick="selectActivityOrg(event)">Handbal</li>
+					<li class="activityItem" id="basketbalOrg" onclick="selectActivityOrg(event)">Basketbal</li>
+					<li class="activityItem" id="hikingOrg" onclick="selectActivityOrg(event)">Hiking</li>
+					</ul>
+				</div>
+
+				<p><label id="categoryLabel">Categorie</label><input type="button" onclick="toggleCategoryList()" class="categoryListButton"/></p>
+				<div id="categoriesListDiv" class="categoriesList">
+					<ul>
+						<li class="categoryItem" id="avansati" onclick="selectCategory(event)">Avansati</li>
+						<li class="categoryItem" id="incepatori" onclick="selectCategory(event)">Incepatori</li>
+					</ul>
+				</div>
+				<p><input type="button" value="Participa" onclick="showSearchEventPannel()"/>
+                <button onclick="closeParticipateForm()">Close</button>
+				<!-- get the list of all events and populate this table-->
+			</form>
+		</div>
+    </main>
+</div>
+</body>
+</html>
