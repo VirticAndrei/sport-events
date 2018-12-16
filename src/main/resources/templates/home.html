@@ -11,9 +11,11 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/OptionsButton.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/OrganizeEventButton.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/ParticipateEventButon.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/BuyTicket.css}">
     <script type="text/javascript" th:src="@{/OptionsButton.js}"></script>
     <script type="text/javascript" th:src="@{/OrganizeEventButton.js}"></script>
     <script type="text/javascript" th:src="@{/ParticipateEventButton.js}"></script>
+	<script type="text/javascript" th:src="@{/BuyTicket.js}"></script>
     <!--<link rel="stylesheet" type="text/css" href="../static/css/OptionsButton.css">
     <script type="text/javascript" src="../static/OptionsButton.js"></script>-->
 
@@ -30,8 +32,8 @@
 				</div>
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/home">Home</a></li>
-					<li><a href="#">Account</a></li>
-					<li><a href="#">Logout</a></li>
+					<li><a href="/account">Account</a></li>
+					<li><a href="/logout">Logout</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -46,7 +48,8 @@
                         class="btn btn-primary eventOrganize">Organizeaza un eveniment</button></p>
                 <p><button onclick="showEventParticipateForm()"
 						class="btn btn-primary eventOrganize">Participa la un eveniment</button></p>
-
+				<p><button onclick="showBuyTicketForm()"
+						   class="btn btn-primary eventOrganize">Cumpara bilet</button></p>
             </div>
         </div>
 		
@@ -90,7 +93,7 @@
 				<p><label id="rentOption" class="rentField">Inchiriaza teren<input type="button"/></label></p>
 
                 <p><input type="button" value="Organizeaza" onclick="showResponsePannel()"/>
-                <button onclick="closeEventOrganizeForm()">Close</button>
+                <button type="button" onclick="hideEventOrganizeForm()">Close</button>
                 <button>Invita prieteni</button></p>
             </form>
         </div>
@@ -119,9 +122,69 @@
 					</ul>
 				</div>
 				<p><input type="button" value="Participa" onclick="showSearchEventPannel()"/>
-                <button onclick="closeParticipateForm()">Close</button>
+                <button type="button"  onclick="hideEventParticipateForm()">Close</button>
 				<!-- get the list of all events and populate this table-->
 			</form>
+		</div>
+
+		<div class="buy-ticket hidden">
+			<form>
+				<div class="form-group">
+					<label class="font" for="eventsList">Titlu eveniment</label>
+					<select multiple class="form-control" id="eventsList">
+						<option>Cross</option>
+						<option>Handball</option>
+						<option>Tenis de camp</option>
+						<option>Bascket</option>
+					</select>
+				</div>
+				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#buyTicket">Cumpara bilet</button>
+				<button type="button" class="btn btn-danger" onclick="hideBuyTicketForm()">Close</button>
+			</form>
+		</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="buyTicket" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<form>
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Cumpara bilet</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label for="nrOfTickets">Select list:</label>
+								<select class="form-control" id="nrOfTickets">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="ticketType">Select list:</label>
+								<select class="form-control" id="ticketType">
+									<option>Normal</option>
+									<option>VIP</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="payment">Select list:</label>
+								<select class="form-control" id="payment">
+									<option>Online</option>
+									<option>La livrare</option>
+								</select>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary">Achizitioneaza</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
     </main>
 </div>

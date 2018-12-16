@@ -1,0 +1,9 @@
+.buy-ticket{
+    width: 50%;
+    background: #3498DB;
+}
+
+.buy-ticket .font{
+    color: white;
+    font-size: medium;
+}

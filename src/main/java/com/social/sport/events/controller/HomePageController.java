@@ -24,8 +24,14 @@ public class HomePageController {
 
     @PostMapping("/login")
     public String login(HttpServletRequest request) {
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        if(email.equals("user@yahoo.com") && password.equals("parola")){
+            return "home";
+        } else {
+            return "index";
+        }
 
-        return "index";
 
     }
 
@@ -33,6 +39,20 @@ public class HomePageController {
     public String home(HttpServletRequest request) {
 
         return "home";
+
+    }
+
+    @GetMapping("/account")
+    public String account(HttpServletRequest request) {
+
+        return "account";
+
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request) {
+
+        return "index";
 
     }
 

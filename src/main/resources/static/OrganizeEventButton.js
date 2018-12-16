@@ -6,17 +6,6 @@ function hideEventOrganizeForm() {
     document.getElementById("eventOrganizeDiv").classList.remove('showOptions');
 }
 
-function closeEventOrganizeForm() {
-    var organizeEventForm = document.getElementsByClassName('eventOrganizeForm');
-	var i;
-    for(i=0; i<organizeEventForm.length; i++){
-        var organizeEvent = organizeEventForm[i];
-        if(organizeEvent.classList.contains('showOptions')){
-            organizeEvent.classList.remove('showOptions');
-        }
-    }
-}
-
 function toggleAtivitiesList() {
 	document.getElementById('activitiesListDiv').classList.toggle('showOptions');
 	document.getElementById('activitiesListDiv2').classList.toggle('showOptions');
