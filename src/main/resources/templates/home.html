@@ -11,13 +11,18 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/OptionsButton.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/OrganizeEventButton.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/ParticipateEventButon.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/inchiriazaTeren.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/invitaPrieteni.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/responsePannel.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/BuyTicket.css}">
     <script type="text/javascript" th:src="@{/OptionsButton.js}"></script>
     <script type="text/javascript" th:src="@{/OrganizeEventButton.js}"></script>
     <script type="text/javascript" th:src="@{/ParticipateEventButton.js}"></script>
+	<script type="text/javascript" th:src="@{/inchiriazaTeren.js}"></script>
+	<script type="text/javascript" th:src="@{/invitaPrieteni.js}"></script>
+	<script type="text/javascript" th:src="@{/responsePannel.js}"></script>
 	<script type="text/javascript" th:src="@{/BuyTicket.js}"></script>
-    <!--<link rel="stylesheet" type="text/css" href="../static/css/OptionsButton.css">
-    <script type="text/javascript" src="../static/OptionsButton.js"></script>-->
+
 
     <title>Sportbook</title>
 </head>
@@ -50,12 +55,18 @@
 						class="btn btn-primary eventOrganize">Participa la un eveniment</button></p>
 				<p><button onclick="showBuyTicketForm()"
 						   class="btn btn-primary eventOrganize">Cumpara bilet</button></p>
+				<p><button onclick="showInchiriazaTeren()"
+						   class="btn btn-primary eventOrganize">Inchiriaza teren</button></p>
             </div>
         </div>
-		
+
 		<div id="responsePannel" class="responsePannel">
 			<p id="responseText"></p>
-			<button onclick="hideResponsePannel()">Close</button>
+			<p>
+				<button type="button" onclick="hideResponsePannel()">Distribuie</button>
+				<button type="button" onclick="showInvitaPrieteni()">Invita prieteni</button>
+				<button type="button" onclick="hideResponsePannel()">Close</button>
+			</p>
 		</div>
 
 		<div id="searchEventPannel" class="searchEventPannel">
@@ -70,6 +81,8 @@
 			</table>
 			<button onclick="hideSearchEventPannel()">Close</button>
 		</div>
+
+		<!-- ORGANIZE -->
 
         <div class="eventOrganizeForm" id="eventOrganizeDiv">
 
@@ -92,11 +105,13 @@
                 <p><label id="addressOption" class="addressField">Adresa<input type="text"/></label></p>
 				<p><label id="rentOption" class="rentField">Inchiriaza teren<input type="button"/></label></p>
 
-                <p><input type="button" value="Organizeaza" onclick="showResponsePannel()"/>
+                <p><input type="button" value="Organizeaza" onclick="showResponsePannel('Eveniment organizat cu success')"/>
                 <button type="button" onclick="hideEventOrganizeForm()">Close</button>
-                <button>Invita prieteni</button></p>
+                </p>
             </form>
         </div>
+
+		<!-- PARTICIPATE -->
 
 		<div class="eventOrganizeForm" id="eventParticipateDiv">
 
@@ -185,6 +200,63 @@
 					</form>
 				</div>
 			</div>
+		</div>
+
+		<!-- INCHIRIAZA-->
+		<div class = "eventOrganizeForm" id="InchiriazaTerenDiv">
+			<form method="POST">
+				<p><label>Data</label><input type="date"/></p>
+				<p><label>Interval orar </label><input type="time"/></p>
+				<p><label id="activityLabelInc">Activitate</label><input type="button" onclick="toggleInchiriazaAtivitiesList()" class="activitiesListButton"/></p>
+				<div id="activitiesListDiv3" class="activitiesListClass">
+					<ul>
+						<li class="activityItem" id="fotbalInc" onclick="selectActivityInc(event)">Fotbal</li>
+						<li class="activityItem" id="tenisCampInc" onclick="selectActivityInc(event)">Tenis de camp</li>
+						<li class="activityItem" id="tenisMasaInc" onclick="selectActivityInc(event)">Tenis de masa</li>
+						<li class="activityItem" id="handballInc" onclick="selectActivityInc(event)">Handbal</li>
+						<li class="activityItem" id="basketbalInc" onclick="selectActivityInc(event)">Basketbal</li>
+						<li class="activityItem" id="hikingInc" onclick="selectActivityInc(event)">Hiking</li>
+					</ul>
+				</div>
+				<button type="button" onclick="showAvailableTerens()">Vezi terenuri</button>
+				<button type="button" onclick="hideInchiriazaTeren()">Close</button>
+			</form>
+		</div>
+
+		<div id="searchTerenPannel" class="searchTerenPannel">
+			<table class="terenTable">
+				<thead>
+				<tr>
+					<th>Adresa</th>
+					<th>Pret</th>
+				</tr>
+				</thead>
+			</table>
+			<input type="button" onclick="inchiriazaTeren()" value="InchiriazaTeren">
+			<button onclick="hideAvailableTerens()">Close</button>
+		</div>
+
+		<!--INVITA PRIETENI-->
+		<div id="invitaPrieteni" class="invitaPriteni">
+			<table class="priteniTable">
+				<thead>
+				<tr>
+					<th>Nume</th>
+				</tr>
+				</thead>
+			</table>
+			<span>Prieteni selectati</span>
+			<table id="priteniSelectati" class="prieteniTable">
+				<thead>
+				<tr>
+					<th>Nume</th>
+				</tr>
+				</thead>
+			</table>
+
+			<p><button type="button" onclick="invitaPrieteni()">Trimite invitatii</button>
+				<button type="button" onclick="hideInvitaPrieteni()">Close</button>
+			</p>
 		</div>
     </main>
 </div>

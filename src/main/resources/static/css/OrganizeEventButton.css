@@ -6,6 +6,7 @@
     border: 2px;
     cursor: pointer;
 	width: 100%;
+	
 }
 .eventOrganize:hover, .eventOrganize:focus {
     background-color: #2980B9;
@@ -14,22 +15,15 @@
 .eventOrganizeForm {
     display: none;
     margin-left: 250px;
-    color: black;
+    color: white;
     background-color: #3498DB;
     min-height: 150px;
 	width: 250px;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
+	padding: 14px;
 }
-.responsePannel {
-	display: none;
-    margin-left: 250px;
-    color: white;
-    background-color: #3498DB;
-	width: 250px;
-	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    z-index: 1;
-}
+
 .activityItem {
 	cursor: pointer;
 }
@@ -49,6 +43,6 @@
 	display:none;
 	position:relative;
 }
-.showOptions {
+.showOrganizeEvent {
 	display: block;
 }

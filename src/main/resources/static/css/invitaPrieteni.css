@@ -1,17 +1,4 @@
-.categoriesList {
-	display:none;
-	position: relative;
-}
-
-.categoryItem {
-	cursor: pointer;
-}
-
-.categoryItem:hover {
-	color: black;
-}
-
-.searchEventPannel {
+.invitaPriteni {
 	display:none;
 	margin-left: 250px;
     color: white;
@@ -21,9 +8,11 @@
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
 }
-.eventsTable {
+
+.prieteniTable {
 	color: white;
 }
-.showParticipateEvent {
+
+.showInvitaPrieteni {
 	display: block;
 }

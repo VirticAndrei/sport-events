@@ -1,40 +1,30 @@
 function showEventOrganizeForm() {
-    document.getElementById("eventOrganizeDiv").classList.add('showOptions');
+    document.getElementById("eventOrganizeDiv").classList.add('showOrganizeEvent');
 }
 
 function hideEventOrganizeForm() {
-    document.getElementById("eventOrganizeDiv").classList.remove('showOptions');
+    document.getElementById("eventOrganizeDiv").classList.remove('showOrganizeEvent');
 }
 
 function toggleAtivitiesList() {
-	document.getElementById('activitiesListDiv').classList.toggle('showOptions');
-	document.getElementById('activitiesListDiv2').classList.toggle('showOptions');
+	document.getElementById('activitiesListDiv').classList.toggle('showOrganizeEvent');
+	
 }
 
 function showAddressField() {
-	document.getElementById('addressOption').classList.add('showOptions');
+	document.getElementById('addressOption').classList.add('showOrganizeEvent');
 }
 
 function showRentOption() {
-	document.getElementById('rentOption').classList.add('showOptions');
+	document.getElementById('rentOption').classList.add('showOrganizeEvent');
 }
 
 function hideAddressField() {
-	document.getElementById('addressOption').classList.remove('showOptions');
+	document.getElementById('addressOption').classList.remove('showOrganizeEvent');
 }
 
 function hideRentOption() {
-	document.getElementById('rentOption').classList.remove('showOptions');
-}
-
-function showResponsePannel() {
-	hideEventOrganizeForm();
-	document.getElementById('responsePannel').classList.add('showOptions');
-	document.getElementById('responseText').innerText = 'Eveniment organizat cu succes!';
-}
-
-function hideResponsePannel() {
-	document.getElementById('responsePannel').classList.remove('showOptions');
+	document.getElementById('rentOption').classList.remove('showOrganizeEvent');
 }
 
 function selectActivity(event) {
