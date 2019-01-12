@@ -1,0 +1,27 @@
+.searchTerenPannel {
+	display:none;
+	margin-left: 250px;
+    color: white;
+    background-color: #3498DB;
+    min-height: 150px;
+	width: 250px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.terenTable {
+	color: white;
+}
+
+.succesInchiriaza {
+	display:none;
+	margin-left: 250px;
+    color: white;
+    background-color: #3498DB;
+    min-height: 150px;
+	width: 250px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.show {
+	display: block;
+}
